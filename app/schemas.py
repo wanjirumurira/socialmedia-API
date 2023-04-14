@@ -1,6 +1,7 @@
 from pydantic import BaseModel, EmailStr, validator
 from datetime import datetime
 from typing import Optional
+from pydantic.types import conint
 
 #used to create the schema of our APIS
 class PostBase(BaseModel):
@@ -41,6 +42,11 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     id: Optional[str] = None
+
+class Like(BaseModel):
+        post_id: int
+        dir: conint(le=1)
+
 
 
     
