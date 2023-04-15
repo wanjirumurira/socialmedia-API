@@ -31,6 +31,12 @@ class UserCreate(BaseModel):
     email: EmailStr
     password: str
 
+class LikeOut(BaseModel):
+    Post: Post
+    Likes: int
+    class Config:
+        orm_mode = True
+
 
 class UserLogin(BaseModel):
     email: EmailStr
